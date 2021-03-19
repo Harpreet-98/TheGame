@@ -1,0 +1,111 @@
+// Project Name: The Game
+//Name: Harpreet Kaur
+//Student Id:201906414
+//Date Of Submission: 18 March,2021
+//Class IN2203-G2
+//Name of Work:Assignment 1:The Gambling Game
+
+package TheGame;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class MainApplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Casino c =new Casino();
+		c.OrganizeNewGame();
+	}
+
+}
+
+class Casino{
+		//in programming Land:we refer to stories as "requirements"
+		// R001:A player walks into a casino and wants to play a game
+		//we need to create a Player and we need to create a game 
+		Player p1 = new Player();
+		Game g1 = new Game();
+		/*we must design the algorithm for how the player interacts with the GAME*/
+			String userAnswer ;
+		Scanner sc = new Scanner (System.in) ;    //system.in is a standard input stream
+		
+		public void OrganizeNewGame() {
+			System.out.println("welcome to our casino : would you like to play a game? (y\n)");
+			
+			userAnswer = sc.nextLine();
+			
+			if (userAnswer.equals("y")) {
+				System.out.println("let's get started ");
+				g1.PlayGame();
+			}
+			else {System.out.println("Good bye !");}
+		}
+		
+}
+
+class Game{
+	Random rand = new Random();
+	private int ComputerGuess = -1;
+	String guessno;
+	Scanner sc = new Scanner (System.in) ;    //system.in is a standard input stream
+
+	public void PlayGame() {
+		System.out.println("Guess a nymber from 1 to 100 ");
+		
+		System.out.println( "If your guess is within 20 of my guess : then you win . Else I will win !");
+
+		 guessno = sc.nextLine();
+		
+		if(guessno.equals(ComputerGuess))
+		{
+			System.out.println("You Won the game");
+		}
+		else
+		{
+			System.out.println("Computer Wins");
+		}
+			
+		ComputerGuess = ComputerGuess();
+		System.out.println("computer Guess is " +ComputerGuess);
+		
+	}
+	public int ComputerGuess() {
+		//implement the  Algorithm to generate the computer ' s guess:
+		//use a Random Number Generate
+		int programGuess = rand.nextInt(100);
+		return programGuess ;
+	}
+}
+ 
+class Player{ 
+	
+		//collect user's input
+	//compare it to the computer's guess
+    //you have to come up with the winning Algorithm
+	
+}
+			
+
+
+
+
+output:
+welcome to our casino : would you like to play a game? (y
+)
+y
+let's get started 
+Guess a nymber from 1 to 100 
+If your guess is within 20 of my guess : then you win . Else I will win !
+30
+Computer Wins
+computer Guess is 71
+
+
+
+
+
+
+
